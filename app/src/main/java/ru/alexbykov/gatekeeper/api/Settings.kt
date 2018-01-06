@@ -47,7 +47,8 @@ class Settings(app: App) : BasePreferenceHelper(app) {
     }
 
     fun isNoPhones(): Boolean {
-        return getPhoneGate1().isEmpty() || getPhoneGate2().isEmpty()
+        return false
+//        return getPhoneGate1().isEmpty() || getPhoneGate2().isEmpty()
     }
 
 }

@@ -4,10 +4,13 @@
         <color android:color="@color/colorAccent"/>
     </item>
 
-    <!--<item>-->
-        <!--<bitmap-->
-            <!--android:src="@drawable/office"-->
-            <!--android:gravity="center_horizontal|center_vertical"-->
-            <!--/>-->
-    <!--</item>-->
+    <item>
+        <color android:color="@color/colorAccent"/>
+    </item>
+
+
+    <item
+        android:drawable="@drawable/car3"
+        android:gravity="center_horizontal|center_vertical"
+        />
 </layer-list>

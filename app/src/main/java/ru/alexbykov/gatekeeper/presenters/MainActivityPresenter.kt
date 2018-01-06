@@ -9,7 +9,7 @@ import javax.inject.Inject
 @InjectViewState
 class MainActivityPresenter @Inject
 internal constructor(restApi: RestApi,
-                     settings: Settings) : BasePresenter<MainView>() {
+                     val settings: Settings) : BasePresenter<MainView>() {
 
 
     init {
@@ -18,10 +18,11 @@ internal constructor(restApi: RestApi,
     }
 
     fun onClickGateOne() {
+
     }
 
     fun onClickGateTwo() {
-
+        
     }
 
 }
