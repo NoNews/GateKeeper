@@ -6,4 +6,5 @@
     <string name="gate_second">Шлагбаум 2</string>
     <string name="settings">Настройки</string>
     <string name="first_set_phones">Для начала, необходимо указать телефоны в настройках</string>
+    <string name="auto_call">Автоматически звонить</string>
 </resources>

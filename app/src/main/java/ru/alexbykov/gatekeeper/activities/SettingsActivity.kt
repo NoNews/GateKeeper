@@ -12,6 +12,7 @@ import ru.alexbykov.gatekeeper.R
 
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 import ru.alexbykov.gatekeeper.utils.Injector
@@ -43,11 +44,18 @@ class SettingsActivity : BaseSingleActivity(), SettingsView {
     }
 
     override fun setupUX() {
-
+        ltAutoCall.setOnClickListener {
+            switchAutoCall.isChecked = !switchAutoCall.isChecked
+            settingsPresenter.saveAutoCall(switchAutoCall.isChecked)
+        }
     }
 
     override fun unbindUX() {
+        ltAutoCall.setOnClickListener(null)
+    }
 
+    override fun setAutoCallEnabled(enabled: Boolean) {
+        switchAutoCall.isChecked = enabled
     }
 
 
