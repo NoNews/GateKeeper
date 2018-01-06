@@ -69,10 +69,12 @@ abstract class BaseActivity : MvpAppCompatActivity(), NavigatorActivityView, Bas
 
     override fun startActivity(activityClass: Class<out BaseActivity>) {
         Navigator.startActivity(this, activityClass, false)
+        overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity);
     }
 
     override fun startActivityForResult(activityClass: Class<out BaseActivity>, requestCode: Int) {
         Navigator.startActivityForResult(this, activityClass, requestCode)
+        overridePendingTransition(R.anim.move_right_in_activity, R.anim.move_left_out_activity)
     }
 
     override fun finish() {

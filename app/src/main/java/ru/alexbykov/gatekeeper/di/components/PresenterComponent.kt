@@ -7,6 +7,7 @@ import ru.alexbykov.gatekeeper.App
 import ru.alexbykov.gatekeeper.di.modules.RestModule
 import ru.alexbykov.gatekeeper.di.modules.UtilsModule
 import ru.alexbykov.gatekeeper.presenters.MainActivityPresenter
+import ru.alexbykov.gatekeeper.presenters.SettingsPresenter
 import ru.alexbykov.gatekeeper.presenters.SplashPresenter
 
 /**
@@ -23,4 +24,5 @@ interface PresenterComponent {
 
     val mainActivityPresenter: MainActivityPresenter
     val splashPresenter: SplashPresenter
+    val settingsPresenter: SettingsPresenter
 }

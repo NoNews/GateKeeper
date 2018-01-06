@@ -11,9 +11,9 @@ import ru.alexbykov.gatekeeper.R
 import ru.alexbykov.gatekeeper.interfaces.views.MainView
 import ru.alexbykov.gatekeeper.presenters.MainActivityPresenter
 import ru.alexbykov.gatekeeper.utils.Injector
-import android.support.v4.content.ContextCompat.startActivity
 import android.content.Intent
 import android.net.Uri
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : BaseActivity(), MainView {
@@ -37,14 +37,22 @@ class MainActivity : BaseActivity(), MainView {
         super.onCreate(savedInstanceState)
     }
 
+
+
+
     override fun setupUI() {
         toolbar.title = getString(R.string.app_name)
+        toolbar.inflateMenu(R.menu.menu)
+        toolbar.setOnMenuItemClickListener {
+            startActivity(SettingsActivity::class.java)
+            true
+        }
     }
 
     override fun setupUX() {
         btnGateOne.setOnClickListener { mainPresenter.onClickGateOne() }
         btnGateTwo.setOnClickListener { mainPresenter.onClickGateTwo() }
-        btnSettings.setOnClickListener { }
+        btnSettings.setOnClickListener { startActivity(SettingsActivity::class.java) }
     }
 
     override fun unbindUX() {
@@ -62,6 +70,8 @@ class MainActivity : BaseActivity(), MainView {
             showView(ltGateButtons)
         }
     }
+
+
 
     override fun makeCall(phone: String, isAutoCall: Boolean) {
         var action: String? = null
