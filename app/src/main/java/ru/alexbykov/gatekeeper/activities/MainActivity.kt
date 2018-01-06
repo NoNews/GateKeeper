@@ -11,6 +11,10 @@ import ru.alexbykov.gatekeeper.R
 import ru.alexbykov.gatekeeper.interfaces.views.MainView
 import ru.alexbykov.gatekeeper.presenters.MainActivityPresenter
 import ru.alexbykov.gatekeeper.utils.Injector
+import android.support.v4.content.ContextCompat.startActivity
+import android.content.Intent
+import android.net.Uri
+
 
 class MainActivity : BaseActivity(), MainView {
 
@@ -38,9 +42,9 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     override fun setupUX() {
-        btnGateOne.setOnClickListener { }
-        btnGateTwo.setOnClickListener { }
-        btnSettings.setOnClickListener {  }
+        btnGateOne.setOnClickListener { mainPresenter.onClickGateOne() }
+        btnGateTwo.setOnClickListener { mainPresenter.onClickGateTwo() }
+        btnSettings.setOnClickListener { }
     }
 
     override fun unbindUX() {
@@ -53,16 +57,22 @@ class MainActivity : BaseActivity(), MainView {
         if (show) {
             hideView(ltGateButtons)
             showView(ltSettings)
-        }
-        else{
+        } else {
             hideView(ltSettings)
             showView(ltGateButtons)
         }
     }
 
     override fun makeCall(phone: String, isAutoCall: Boolean) {
-
+        var action: String? = null
+        if (isAutoCall) {
+            action = Intent.ACTION_CALL
+        } else {
+            action = Intent.ACTION_VIEW
+        }
+        val intent = Intent(action)
+        intent.data = Uri.parse("tel:" + phone)
+        startActivity(intent)
     }
-
 
 }

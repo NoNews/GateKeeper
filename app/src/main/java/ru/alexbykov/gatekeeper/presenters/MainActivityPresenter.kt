@@ -17,4 +17,11 @@ internal constructor(restApi: RestApi,
         viewState.showNoPhone(settings.isNoPhones())
     }
 
+    fun onClickGateOne() {
+    }
+
+    fun onClickGateTwo() {
+
+    }
+
 }

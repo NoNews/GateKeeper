@@ -38,7 +38,7 @@ class Settings(app: App) {
     }
 
     fun isNoPhones(): Boolean {
-        return true
+        return false
     }
 
 }
