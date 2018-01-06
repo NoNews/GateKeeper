@@ -5,6 +5,7 @@ import android.os.Bundle
 
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import kotlinx.android.synthetic.main.activity_main.*
 
 import ru.alexbykov.gatekeeper.R
 import ru.alexbykov.gatekeeper.interfaces.views.MainView
@@ -28,15 +29,38 @@ class MainActivity : BaseActivity(), MainView {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         setContentView(LAYOUT)
+        super.onCreate(savedInstanceState)
     }
 
     override fun setupUI() {
-
+        toolbar.title = getString(R.string.app_name)
     }
 
     override fun setupUX() {
+        btnGateOne.setOnClickListener { }
+        btnGateTwo.setOnClickListener { }
+        btnSettings.setOnClickListener {  }
+    }
+
+    override fun unbindUX() {
+        btnGateOne.setOnClickListener(null)
+        btnGateTwo.setOnClickListener(null)
+        btnSettings.setOnClickListener(null)
+    }
+
+    override fun showNoPhone(show: Boolean) {
+        if (show) {
+            hideView(ltGateButtons)
+            showView(ltSettings)
+        }
+        else{
+            hideView(ltSettings)
+            showView(ltGateButtons)
+        }
+    }
+
+    override fun makeCall(phone: String, isAutoCall: Boolean) {
 
     }
 

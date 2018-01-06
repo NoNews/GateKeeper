@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import ru.alexbykov.gatekeeper.App
 import ru.alexbykov.gatekeeper.api.RestApi
+import ru.alexbykov.gatekeeper.api.Settings
 import ru.alexbykov.gatekeeper.utils.presenter.TokenHelper
 
 /**
@@ -24,11 +25,18 @@ class RestModule(app: App) {
 
     private val tokenHelper: TokenHelper = TokenHelper(PreferenceManager.getDefaultSharedPreferences(app))
     private val restApi: RestApi
+    private val settings: Settings= Settings(app)
 
     init {
         restApi = RestApi(tokenHelper)
     }
 
+
+    @Singleton
+    @Provides
+    internal fun provideSettings(): Settings {
+        return settings
+    }
 
     @Singleton
     @Provides

@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">AndroidTemplate</string>
+    <string name="app_name">Открыватор</string>
     <string name="repeat_request">Повторить запрос</string>
     <string name="something_went_wrong">Что-то пошло не так :\'(</string>
+    <string name="gate_first">Шлагбаум 1</string>
+    <string name="gate_second">Шлагбаум 2</string>
+    <string name="settings">Настройки</string>
+    <string name="first_set_phones">Для начала, необходимо указать телефоны в настройках</string>
 </resources>

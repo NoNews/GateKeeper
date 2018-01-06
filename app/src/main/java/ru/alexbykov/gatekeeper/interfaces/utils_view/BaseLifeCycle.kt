@@ -13,4 +13,6 @@ interface BaseLifeCycle {
     fun setupUI()
 
     fun setupUX()
+
+    fun unbindUX()
 }

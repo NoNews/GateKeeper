@@ -36,10 +36,8 @@ class SplashActivity : BaseActivity(), SplashView {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         setContentView(LAYOUT)
-        setupUI()
-        setupUX()
+        super.onCreate(savedInstanceState)
         mvpDelegate.onAttach()
     }
 
@@ -54,9 +52,15 @@ class SplashActivity : BaseActivity(), SplashView {
             showView(ltBackground!!)
 
             animationHelper.scaleIn(tvSomethingWentWrong!!)
-        } else
+        } else {
             hideView(ltBackground!!)
+        }
     }
+
+    override fun unbindUX() {
+
+    }
+
 
     override fun setupUI() {
         ltBackground = bindView<LinearLayout>(R.id.ltBackground)
